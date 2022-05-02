@@ -1,0 +1,21 @@
+.post-content {
+	display: inline;
+	padding-right: 100px;
+	padding-top: 50px;
+	width: 25%;
+	padding: 5px;
+	float: left;
+	text-align:center; 
+}
+
+h3 {
+	font-size: 20pw;
+}
+
+.text1 {
+	font-size: 15px;
+}
+
+.post-wrapper {
+	align-items: center;
+}

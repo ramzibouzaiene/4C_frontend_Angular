@@ -1,0 +1,33 @@
+<section>
+<div class="login-page">
+      <div class="form">
+        <div class="login">
+          <div class="login-header">
+            <h2>Se Connecter</h2>
+          </div>
+        </div>
+        <form class="login-form" [formGroup]="login">
+          <input type="text" placeholder="Email ou Pseudo" formControlName="email"/>
+          <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+          <div *ngIf="f['email'].errors && f['email'].errors['required']">L' e-mail est requis.</div>
+          <div *ngIf="f['email'].errors && f['email'].errors['email']">Entrez une adresse email valide.</div>
+          </div>
+
+          <input type="password" placeholder="Mot de passe" formControlName="password"/>
+          <div class="contact100-form-checkbox">
+            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" formControlName="remember-me">
+            <label class="label-checkbox100" for="ckb1">
+              Mémoriser le mot de passe ?
+            </label>
+          </div>
+          <div class="text-center p-t-90">
+            <a class="txt1" href="#">
+             Mot de passe oublié
+            </a>
+          </div>
+          <button type="submit" (click)="onSubmit()" [disabled]="login.invalid">Connexion</button>
+          <p class="message">Non enregistré? <a routerLink="/signup">Créer un compte</a></p>
+        </form>
+      </div>
+    </div>
+</section>

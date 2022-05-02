@@ -1,0 +1,55 @@
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="cta" class="cta">
+      <div class="container">
+        <div class="row" data-aos="zoom-out">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+            <li><a href="index.html">Accueil</a></li>
+            <li>Evénement</li>
+          </ol>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            
+          </div>
+          <div class="section-title" data-aos="zoom-out">
+          <h2>4C Issat Sousse</h2>
+          <p>{{events.id}}</p>
+        </div>
+        </div>
+      </div>
+</section> 
+<!-- ======= Event Section ======= -->
+
+<section id="portfolio-details" class="portfolio-details">
+      <div class="container">
+
+        <div class="row gy-4" id="activites" *ngFor="let event of events">
+            
+          <div class="col-lg-4">
+            <div class="portfolio-info">
+              <h3>{{ event.titre}}</h3>
+              <ul>
+                <li><strong>Lieu</strong>: {{ event.Lieu }}</li>
+                <li><strong>Date</strong>: {{ event.date_debut }}</li>
+              </ul>
+              <p> {{ event.description }}</p>
+            </div>
+            <div class="portfolio-description">
+            </div>
+          </div>
+
+          <div class="col-lg-8">
+            {{ event.cover}}
+          </div>
+
+        </div>
+
+      </div>
+<div>
+
+</div>
+
+</section>
+
+<!-- End Event Section -->

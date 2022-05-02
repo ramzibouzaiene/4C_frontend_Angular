@@ -1,0 +1,182 @@
+
+<!-- ======= Breadcrumbs ======= -->
+<section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-out">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+            <li><a href="index.html">Accueil</a></li>
+            <li>Nos Partenaires</li>
+          </ol>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            
+          </div>
+          <div class="section-title" data-aos="zoom-out">
+          <h2>Nos Partenaires</h2>
+          <p>Liste Des Partenaires</p>
+        </div>
+        </div>
+
+      </div>
+</section>
+
+<!-- ======= Partners Section ======= -->
+
+<section data-aos="fade-right">
+      <div class="container" >
+        <div class="row mt-5">
+          <div data-aos="fade-right">
+              <div class="title">
+                <h6>Partenaires industriels ISSATSo :</h6>
+                </div>
+              <div class="row1">
+                <div class="partner" *ngFor='let partner of partners_indus'>
+                  <a [href]="partner.lien" target="_blank">
+                  <img [src]="url+partner.logo">
+                </a>
+                </div>
+               <!-- <div class="partner">
+                  <img src="assets/img/partners/indus2.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus3.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus4.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus5.jpg">
+                </div>
+                
+                <div class="partner">
+                  <img src="assets/img/partners/indus7.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus8.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus9.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus10.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus11.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus12.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus13.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus14.jpg">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus15.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus16.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus17.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus18.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus19.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus20.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus21.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus22.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus23.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus24.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus25.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus26.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus27.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus28.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/indus29.png">
+                </div> -->
+              </div>
+              </div>
+
+              <div class="title">
+                <h6>Partenaires Associatives Et Structures D'appuis :</h6>
+                </div>
+                <div class="row1">
+                <div class="partner" *ngFor='let partner of partners_univ'>
+                  <a [href]="partner.lien" target="_blank">
+                  <img [src]="url+partner.logo">
+                </a>
+                </div>
+                <!--
+                <div class="partner">
+                  <img src="assets/img/partners/assoc2.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/assoc3.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/assoc4.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/assoc5.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/assoc6.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/assoc7.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/assoc8.png">
+                </div> -->
+              </div>
+                
+              </div>
+              <div class="title">
+                <h6>Partenaires Universitaires Et Structures De Formation :</h6>
+                </div>
+                <div class="row1">
+                <div class="partner" *ngFor='let partner of partners_asso'>
+                  <a [href]="partner.lien" target="_blank">
+                  <img [src]="url+partner.logo">
+                </a>
+                </div>
+                <!--
+                <div class="partner">
+                  <img src="assets/img/partners/univ2.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/univ3.png">
+                </div>
+                <div class="partner">
+                  <img src="assets/img/partners/univ4.png">
+                </div>-->
+                </div>
+            </div>
+          
+</section> 
+<!-- End Partners Section -->

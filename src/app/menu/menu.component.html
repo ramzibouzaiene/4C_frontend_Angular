@@ -1,0 +1,118 @@
+<div id="topnav" class="fixed-top d-flex">
+    <div class="container">
+  <a href="https://www.facebook.com/4CISSATSousse/" class="facebook" target="_blank"><i class="bx bxl-facebook"></i></a>
+  <a href="https://www.linkedin.com/company/4c-issat-sousse/" class="linkedin" target="_blank"><i class="bx bxl-linkedin"></i></a>
+  <div class="search-container">
+    <form action="/action_page.php">
+      <input type="text" placeholder="Recherche.." name="search">
+      <button type="submit"><i class="bx bi-search"></i></button>
+    </form>
+  </div>
+</div>
+</div>
+
+<div class="headeer">
+</div>
+<!-- class=" d-flex align-items-center header-transparent "  -->
+<header id="header" role="navigation"> 
+  <script>
+function myFunction() {
+  var x = document.getElementById("navbar");
+  if (x.className === "navbar") {
+    x.className += " responsive";
+  } else {
+    x.className = "navbar";
+  }
+}
+</script>
+  <div class="container d-flex align-items-center justify-content-between">
+    <div class="container">
+<!--
+      <div class="logo">
+         <h1><a href="index.html">4C IssatSo</a></h1> 
+
+        <a href="index.html"><img src="assets/img/4clogo.png" alt="" class="img-fluid"></a>
+      </div>  -->
+
+      <nav id="navbar" class="navbar">
+        <ul>
+          <li><a routerLink="">Accueil</a></li>
+          <li class="dropdown"><a href="#">Présentation<i class="bi bi-chevron-down"></i></a>
+            <ul>
+              <li><a routerLink="/teams">Equipe 4C</a></li>
+              <li><a routerLink="/media">Media</a></li>
+              <li><a routerLink="/library">Biothéque 4C</a></li>
+            </ul>
+          </li>
+          <li class="dropdown"><a href="#">Activités<i class="bi bi-chevron-down"></i></a>
+            <ul>
+              
+            <li *ngFor="let type of types">
+              <a [routerLink]="['/events' , type.type ]">{{type.type}}</a>
+            </li>
+           <!-- <li><a routerLink="/workshops">Workshops</a></li>
+            <li><a routerLink="/journees">Journées</a></li>-->
+          </ul>
+          </li>
+          <li class="dropdown"><a href="#">Services<i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a routerLink="/trainings">Formation</a></li>
+            <li><a routerLink="/certification">Certification</a></li>
+            <li><a href="#">Conseil/Accompagnement</a></li>
+            <li><a href="#">Gestion De Carrière</a></li>
+          </ul>
+          </li>
+          <li class="dropdown"><a href="#">Partenaires<i class="bi bi-chevron-down"></i></a>
+            <ul>
+            <li><a routerLink="/partners">Nos Partenaires</a></li>
+            <li><a routerLink="/offres">Offre De Stage/Emploi</a></li>
+          </ul>
+          </li>
+          <li><a routerLink="/contact">Contact</a></li>
+          <!--
+          <ul class="nav navbar-nav navbar-right">
+            <li *ngIf="!loggedIn" ><a routerLink="/login"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
+            <li *ngIf="loggedIn" ><a (click)="logout($event)" href="#"><span class="glyphicon glyphicon-log-in" ></span> Logout</a></li>
+            <li *ngIf="loggedIn" ><a routerLink="profile"><span class="glyphicon glyphicon-log-in"></span> Profile</a></li>
+          </ul> 
+         <ul>
+          <li routerLink="/signup" class="button">S'inscrire</li>
+          <li routerLink="/login" class="button1">Se Connecter</li>
+          </ul> -->
+          <ul> 
+          <li>
+          <div class="notification-icon right">
+            <i class="material-icons dp48">email</i>
+            <span class="num-count">2</span>
+          </div>
+          </li>
+          <li>
+          <div class="notification-icon right">
+            <i class="material-icons dp48">notifications</i>
+            <span class="num-count">13</span>
+          </div>
+          </li>
+          <li class="dropdown"> 
+            <a href="#">
+            <div class="avatar">
+            <img src="assets/img/user.png"/></div></a>
+            <ul>
+              <h6 class="usertitle"> {{ currentUser.name }}</h6>
+              <hr style="height:2px;color:gray;background-color:gray">
+              <li class="user"><mat-icon>account_circle</mat-icon><a routerLink="/profile">Profil</a> </li>
+              <li class="user"><mat-icon>settings</mat-icon><a routerLink="/editprofile">Modifier le profil</a> </li>
+              <li class="user"><mat-icon>edit</mat-icon><a href="#">Créer un CV</a> </li>
+              <li class="user"><mat-icon>logout</mat-icon><a href="#">Deconnecté</a> </li> 
+            </ul>
+          </li>
+        </ul>
+        </ul>
+        <i class="bi bi-list mobile-nav-toggle"></i>
+      </nav>
+      <!-- .navbar -->
+      
+      </div>
+    </div>
+  </header>
+<!-- End Header -->
+
