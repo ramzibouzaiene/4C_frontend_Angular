@@ -1,0 +1,63 @@
+<!-- ======= Breadcrumbs ======= -->
+<section id="cta" class="cta">
+      <div class="container">
+        <div class="row" data-aos="zoom-out">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+            <li><a routerLink="/home">Accueil</a></li>
+            <li>Les Offres</li>
+          </ol>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            
+          </div>
+          <div class="section-title" data-aos="zoom-out">
+          <h2>4C Issat Sousse</h2>
+          <p>Les Offres: Stage/Emploi</p>
+        </div>
+        </div>
+      </div>
+</section>
+
+
+<section>
+<div class="container mt-5 mb-5">
+    <div class="card-columns" *ngIf="o">
+      <div class="card mb-3">
+        <div class="card-body">
+          
+          <p class="card-text" [innerHTML]="o.titre"></p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div>
+          <img src="{{storageUrl}}{{o.cover}}">
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Mission:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="o.mission"></p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Profil:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="o.profil"></p>
+        </div>
+      </div>
+       <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Postuler:</h5>
+          <hr>
+          <p class="card-text" *ngIf="!isLoggedIn">connectez-vous pour voir le formulaire</p>
+          <a href="{{o.postuler}}" class="card-text" target="_blanck" *ngIf="isLoggedIn"></a>
+        </div>
+      </div>
+       
+    </div>
+    <a class="btn btn-primary" [routerLink]="['/offres']">Retour</a>
+</div>
+</section>

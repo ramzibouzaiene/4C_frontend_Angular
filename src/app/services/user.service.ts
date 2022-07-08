@@ -7,12 +7,13 @@ const API_URL = 'ttp://127.0.0.1:8000/api/';
 })
 export class UserService {
   constructor(private http: HttpClient) {}
-  //const metohod2 = { responseType: 'text' }''
-  getPublicContent(): Observable<any> {
-    return this.http.get(`${API_URL}all`);
-  }
-  
-  logoutUser(): Observable<any> {
-    return this.http.get(`${API_URL}logout`);
-  }
+ 
+
+  getAll() {
+        return this.http.get<User[]>(`${API_URL}/users`);
+    }
+
+  getById(id: number) {
+        return this.http.get<User>(`${API_URL}/users/${id}`);
+    }
 }

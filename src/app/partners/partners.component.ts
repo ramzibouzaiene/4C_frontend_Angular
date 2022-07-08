@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { PartnersService } from '../services/partners.service';
+import { Router } from '@angular/router';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-partners',
@@ -9,21 +11,16 @@ import { PartnersService } from '../services/partners.service';
 })
 export class PartnersComponent implements OnInit {
 
-  partners_indus: any;
-  partners_univ: any;
-  partners_asso: any;
+  partners : any[] =[];
+  p: any;
+  storageUrl=environment.storageUrl;
 
-  constructor(private partnersService: PartnersService) { }
-
-  url = "http://localhost:8000/storage/"
+  constructor(private partnersService: PartnersService,private router: Router) { }
   
   ngOnInit() {
     this.partnersService.getPartners().subscribe((data) => {
       console.log(data);
-      this.partners_indus = data.partenaires_indus;
-      this.partners_univ = data.partenaires_univ;
-      this.partners_asso = data.partenaires_asso;
-
+      this.partners = data
     }, (error) => {
       console.log("error in the Service");
     })

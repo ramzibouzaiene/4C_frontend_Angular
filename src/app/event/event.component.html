@@ -5,8 +5,8 @@
         <div class="row" data-aos="zoom-out">
           <div class="d-flex justify-content-between align-items-center">
             <ol>
-            <li><a href="index.html">Accueil</a></li>
-            <li>Evénement</li>
+            <li><a routerLink="/home">Accueil</a></li>
+            <li></li>
           </ol>
           </div>
           <div class="col-lg-3 cta-btn-container text-center">
@@ -14,34 +14,52 @@
           </div>
           <div class="section-title" data-aos="zoom-out">
           <h2>4C Issat Sousse</h2>
-          <p>{{events.id}}</p>
+          <p>Activités</p>
         </div>
         </div>
       </div>
 </section> 
-<!-- ======= Event Section ======= -->
+
+<section id="portfolio" class="portfolio">
+      <div class="container">
+        <div class="homeact" >
+        <div class="row portfolio-container" data-aos="fade-up" >
+
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card" *ngFor="let a of activites">
+            <div class="portfolio-img">
+              <img src="{{storageUrl}}{{a.cover}}" class="img-fluid" alt=""></div>
+            <div class="portfolio-info">
+              <h4>{{a.titre}}</h4>
+              <a [routerLink]="['/actdetail' , a.id]" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
+            </div>
+          </div>
+        </div>
+      </div>
+      </div>
+    </section>
+
+<!-- ======= Event Section ======= 
 
 <section id="portfolio-details" class="portfolio-details">
       <div class="container">
 
-        <div class="row gy-4" id="activites" *ngFor="let event of events">
+        <div class="row gy-4" id="activites" *ngFor="let a of activites">
             
-          <div class="col-lg-4">
+          <div class="col-lg-4" >
             <div class="portfolio-info">
-              <h3>{{ event.titre}}</h3>
+              <h3>{{ a.titre}}</h3>
               <ul>
-                <li><strong>Lieu</strong>: {{ event.Lieu }}</li>
-                <li><strong>Date</strong>: {{ event.date_debut }}</li>
+                <li><strong>Lieu</strong>: {{ a.lieu }}</li>
+                <li><strong>Date</strong>: {{ a.date_deb }}</li>
               </ul>
-              <p> {{ event.description }}</p>
             </div>
             <div class="portfolio-description">
             </div>
           </div>
-
-          <div class="col-lg-8">
-            {{ event.cover}}
+          <div>
+            <img src="{{storageUrl}}{{a.cover}}">
           </div>
+         <button class="btn btn-primary" [routerLink]="['/actdetail' , a.id]">Plus</button>
 
         </div>
 
@@ -50,6 +68,6 @@
 
 </div>
 
-</section>
+</section> -->
 
 <!-- End Event Section -->

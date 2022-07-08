@@ -1,0 +1,58 @@
+input {
+	margin-bottom: 10px;
+  box-sizing: border-box;
+  font-size: 13px;
+  vertical-align: top;
+  padding: 0 13px;
+  font-size: 15px;
+  width: 40%;
+  height: 40px;
+  border: 1px solid darken;
+}
+
+h1 {
+	font-family: Arial;
+	font-weight: 600px;
+	text-align: center;
+	margin-top: -50px;
+	padding-bottom: 10px;
+	text-transform: capitalize;
+	color: #243A73;
+}
+
+img {
+	margin-top: -40px;
+  margin-right: 10px;
+  float: left;
+}
+
+
+button[type=submit] {
+  background: #ef6603;
+  border: 0;
+  padding: 10px 24px;
+  color: #fff;
+  transition: 0.4s;
+  border-radius: 50px;
+  cursor: pointer;
+}
+button[type=submit]:hover {
+  background: #fc8129;
+}
+@-webkit-keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+@keyframes animate-loading {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+

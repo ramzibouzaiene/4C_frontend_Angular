@@ -1,42 +1,163 @@
 <section>
+  <div *ngIf="alert" class="alert alert-success alert-dismissible face show" role="alert"> Vos données ont été ajoutées avec succès.
+      <button (click)=" closeAlert()" type="button" class="close" data-dismiss="alert"><span aria-hidden="true">&times;</span> </button>
+  </div>  
+<form [formGroup]="profiles" (ngSubmit)="UpdateData()">
 <div class="container rounded bg-white mt-5 mb-5">
     <div class="row">
         <div class="col-md-3 border-right">
-            <div class="d-flex flex-column align-items-center text-center p-3 py-5"><input id="image" type="file" name="profile_photo" capture><span class="font-weight-bold">{{ currentUser.name }}</span><span class="text-black-50">{{ currentUser.email }}</span></div>
+            <div class="d-flex flex-column align-items-center text-center p-3 py-5">
+                <img src="assets/img/avatar.png" id="image" >
+                <input type="file" formControlName="avatar" name="profile_photo" capture style="text-align:center">
+            </div>
         </div>
+
         <div class="col-md-5 border-right">
             <div class="p-3 py-5">
                 <div class="d-flex justify-content-between align-items-center mb-3">
                     <h6 class="text-right">Modifier votre profil</h6>
                 </div>
+
                 <div class="row mt-2">
-                    <div class="col-md-6"><label class="labels">Nom</label><input type="text" class="form-control" placeholder="Votre nom"></div>
-                    <div class="col-md-6"><label class="labels">Prénom</label><input type="text" class="form-control"  placeholder="Votre prénom"></div>
+                    <div class="col-md-6"><label class="labels">Nom</label>
+                    <input type="text" formControlName="name" class="form-control" placeholder="Votre Nom"></div>
+                    <div class="col-md-6"><label class="labels">Prénom</label>
+                    <input type="text" formControlName="lastname" class="form-control"  placeholder="Votre Prénom"></div>
                 </div>
             </div>
                 <div class="row mt-3">
-                    <div class="col-md-12"><label class="labels">Date de naissance</label><input type="date" class="form-control"></div>
-                    <div class="col-md-12"><label class="labels">Téléphone</label><input type="number" class="form-control" placeholder="Votre numéro"></div>
-                    <div class="col-md-12"><label class="labels">Adresse</label><input type="text" class="form-control" placeholder="Votre adresse"></div>
+                    <div class="col-md-12"><label class="labels">Date de naissance</label>
+                    <input type="date" formControlName="date_nes" class="form-control"></div>
+                    <div class="col-md-12"><label class="labels">Téléphone</label>
+                    <input type="number" formControlName="tel" class="form-control" placeholder="Votre Numéro"></div>
+                    <div class="col-md-12"><label class="labels">Adresse</label>
+                    <input type="text" formControlName="adresse" class="form-control" placeholder="Votre Adresse"></div>
+                    <div class="col-md-12"><label class="labels" *ngIf="role_id==3">Grade</label>
+                    <input type="text" formControlName="grade" class="form-control" placeholder="Votre Grade" *ngIf="role_id==3"></div>
+                    <div class="col-md-12"><label class="labels" *ngIf="role_id==3">Specialite</label>
+                    <input type="text" formControlName="specialite" class="form-control" placeholder="Votre Spécialité" *ngIf="role_id==3"></div>
+                    <div class="col-md-12"><label class="labels" *ngIf="role_id==3">Statut</label>
+                    <input type="text" formControlName="statut" class="form-control" placeholder="Votre Statut" *ngIf="role_id==3"></div>
                 </div>
                 <div class="row mt-3">
-                <div class="col-md-6"><label class="labels">Etablissement</label>
-                </div>
-                <div class="mt-5 text-center"><button class="btn btn-primary profile-button" type="submit">Enregistrer les modification</button></div>
+                <label for="filiere" *ngIf="role_id==4">Filiére</label>
+                <div class="col-md-12" *ngIf="role_id==4">
+                    <select name="filiere" id="filiere" style="width:200px;" formControlName="filiere" >
+                    <option selected disabled>Votre Filiére</option>
+                      <option value="1">LA.II</option>
+                      <option value="2">LA-EEA</option>
+                      <option value="3">LA.EM</option>
+                      <option value="4">LA-ENG</option>
+                      <option value="5">LA.GC</option>
+                      <option value="6">LA.GM</option>
+                      <option value="7">LF-EEA</option>
+                      <option value="8">LF.GM</option>
+                      <option value="9">LSI</option>
+                      <option value="10">MR-MSEE</option>
+                      <option value="11">MR-SPI</option>
+                      <option value="12">MP-ENG</option>
+                      <option value="13">GPPM-MPGM</option>
+                      <option value="14">Cycle Préparatoire </option>
+                      <option value="15">Cycle Ingénieur</option>
+                    </select>
+                    </div>
+                    <label for="groupe" *ngIf="role_id==4">Groupe</label>
+                    <div class="col-md-12" *ngIf="role_id==4">
+                    <select name="groupe" id="groupe" style="width:200px;" formControlName="groupe">
+                        <option selected disabled>Votre Groupe</option>
+                        <!-- Prépa -->
+                        <option value="14">Prepa A1</option>
+                        <option value="14">Prepa A2</option>
+
+                        <!-- Ingénieurie -->
+                        <option value="15">ING A1</option>
+                        <option value="15">ING GL A2</option>
+                        <option value="15">ING GL-AL A3</option>
+
+                        <!-- Licence -->
+                        <option>EEA A1</option>
+                        <option>LEEA-A2-AII</option>
+                        <option>LEEA-A2-EI</option>
+                        <option>LEM-A2-SE</option>
+                        <option>LEEA-A3-EI</option>
+                        <option>LEEA-A3-AII</option>
+                        <option>LEEA-A3-SE</option>
+
+                        <option>EM A1</option>
+                        <option>LEM-A2-MI</option>
+                        <option>LEM-A2-MA</option>
+                        <option>LEM-A3-MA</option>
+                        <option>LEM-A3-MI</option>
+
+                        <option>Energ A1</option>
+                        <option>LGENERG-A2</option>
+                        <option>LGENERG-A3</option>
+                        <option>LENERG-A3</option>
+
+                        <option>GC A1</option>
+                        <option>LGC-A2-BAT</option>
+                        <option>LGC-A2-P&C</option>
+                        <option>LGC-A3-BAT</option>
+                        <option>LGC-A3-P&C</option>
+
+                        <option>GM A1</option>
+                        <option>LGM-A2-PROD</option>
+                        <option>LGM-A2-CPI</option>
+                        <option>LGM-A3-PROD</option>
+
+                        <option>LISI A1</option>
+                        <option>LISI-A2</option>
+                        <option>LISI-A3</option>
+
+                        <option>LSI A1</option>
+                        <option>LSI A2</option>
+                        <option>LSI A3</option>
+
+                        <!-- Mastére -->
+                        <option>MP Energ A1</option>
+                        <option>MP Energ A2</option>
+
+                        <option>MP EEB A1</option>
+
+                        <option>MP GM A1</option>
+                        <option>MR GM A1</option>
+                        <option>MP GM-GPPM A2</option>
+                        <option>MR GM-MM A2</option>
+                        <option>MR GM-SM A2</option>
+
+                        <option>MP MSEE A1</option>
+                        <option>MR MSEE-SEE A2</option>
+
+                        <option>MR SPI A1</option>
+                        <option>MR SPI A2</option>                       
+                    </select>
+                    </div>
             </div>
         </div>
         <div class="col-md-4">
             <div class="p-3 py-5">
-                <div class="col-md-12"><label class="labels">Facebook</label><input type="text" class="form-control" placeholder="facebook URL"></div>
-                <div class="col-md-12"><label class="labels">LinkedIn</label><input type="text" class="form-control" placeholder="linkedin URL"></div>
-                <div class="col-md-12"><label class="labels">Instagram</label><input type="text" class="form-control" placeholder="instagram URL"></div>
+                <div class="col-md-6"><label class="labels">Facebook</label>
+                <input type="text" formControlName="facebook" class="form-control" placeholder="facebook URL"></div>
+                <div class="col-md-6"><label class="labels">LinkedIn</label>
+                <input type="text" formControlName="linkedin" class="form-control" placeholder="linkedin URL"></div>
+                <div class="col-md-6"><label class="labels">Instagram</label>
+                <input type="text" formControlName="instagram" class="form-control" placeholder="instagram URL"></div>
+                <div class="col-md-6"><label class="labels">Github</label>
+                <input type="text" formControlName="github" class="form-control" placeholder="Github URL"></div>
                 <hr>
-                <div class="col-md-12"><label class="labels">Actuel</label><input type="password" class="form-control"></div>
-                <div class="col-md-12"><label class="labels">Nouveau</label><input type="password" class="form-control"></div>
-                <div class="col-md-12"><label class="labels">Confirmer</label><input type="password" class="form-control"></div>
+                <h6 class="text-center" style="text-align: center;">Changer mot de passe</h6>
+                <div class="col-md-12"><label class="labels">Actuel</label>
+                <input type="password" formControlName="password" class="form-control"></div>
+                <div class="col-md-12"><label class="labels">Nouveau</label>
+                <input type="password" formControlName="newpassword" class="form-control"></div>
+                <div class="col-md-12"><label class="labels">Confirmer</label>
+                <input type="password" formControlName="confpassword" class="form-control"></div>
                 
             </div>
         </div>
     </div>
+     <div class="mt-5 text-center">
+                <button class="btn btn-primary profile-button" type="submit">Enregistrer les modification</button></div>
 </div>
+</form>
 </section>

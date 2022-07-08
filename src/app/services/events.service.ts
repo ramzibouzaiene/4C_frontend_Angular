@@ -9,12 +9,17 @@ import { throwError } from 'rxjs';
 })
 export class EventsService {
 
-  private events_api_url: string = 'http://127.0.0.1:8000/api/activites/';
+  private activites_api_url: string = 'http://127.0.0.1:8000/api/activites';
+  private activite_api_url: string = 'http://127.0.0.1:8000/api/activite';
+
 
   constructor(private http:HttpClient) { }
 
-  getEvents(id): Observable<any> {
-    return this.http.get(this.events_api_url+id );
+  getActivites(id): Observable<any> {
+    return this.http.get(this.activites_api_url+'/'+id );
+  } 
+   getActivity(id): Observable<any> {
+    return this.http.get(this.activite_api_url+'/'+id );
   } 
 
 }

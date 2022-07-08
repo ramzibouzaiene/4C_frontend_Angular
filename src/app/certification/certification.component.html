@@ -18,32 +18,26 @@
         </div>
       </div>
 </section>
-<!-- ======= Training Section ======= -->
+<!-- ======= Certification Section ======= -->
 <section class="white-section blog-section single-post-section">
         <div class="container"
              data-aos="fade"
              data-aos-anchor-placement="top-bottom"
              data-aos-easing="ease-in-out"
-             data-aos-duration="800">
-            <div class="row">
-                <div class="post-wrapper">
-                    <div class="post-content" data-aos="zoom-in">
-                        <img src="assets/img/icons/soft.png">
-                        <h3 class="titre1">Soft Skills</h3> <br>
-                        <p class="text1">Renforcement et certification en techniques de communication et leadership.</p>
-                    </div>
-                    <div class="post-content" data-aos="zoom-in">
-                        <img src="assets/img/icons/pc.png">
-                        <h3 class="titre1">TIC</h3> <br>
-                        <p class="text1">Renforcement et certification des compétences en informatique et en technologie</p>
-                    </div>
-                    <div class="post-content" data-aos="zoom-in">
-                        <img src="assets/img/icons/language.png">
-                        <h3 class="titre1">Français & Anglais </h3> <br>
-                        <p class="text1">Renforcement et certification des compétences en langue française et anglais.</p>
-                    </div>
+             data-aos-duration="800" *ngFor="let c of certifs">
+            <img class="certif" src="{{storageUrl}}{{c.cover}}">
+
+            <div>
+                <p class="def" [innerHTML]="c.description" data-aos="zoom-in">
+                </p>
+                <p class="def" [innerHTML]="c.certificats" data-aos="zoom-in">
+                </p>
+                <div class="row" data-aos="zoom-in">
+                  <div class="column">
+                    <img src="{{storageUrl}}{{c.certiflogo}}" style="width:100%">
                   </div>
+                </div>
             </div>
         </div>
 </section>
-<!-- End Training Section -->
+<!-- End Certification Section -->

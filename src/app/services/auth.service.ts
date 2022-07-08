@@ -14,6 +14,8 @@ const httpOptions = {
 })
 export class AuthService {
 
+  
+
 constructor(private http: HttpClient, private router: Router) { }
 
 login(email: string, password: string): Observable<any> {
@@ -27,6 +29,8 @@ register(body):Observable<any> {
   console.log(body)
     return this.http.post(AUTH_API + '/register', body, httpOptions);
   }
+
+  
 /*
   getToken() {
     return localStorage.getItem('access_token');

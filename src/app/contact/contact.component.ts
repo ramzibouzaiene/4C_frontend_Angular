@@ -13,28 +13,37 @@ import { ContactService } from '../services/contact.service';
 })
 export class ContactComponent implements OnInit {
 
-  contact: FormGroup;
+  errorMessage = '';
+
+  contact = new FormGroup({
+      nom: new FormControl ('', [Validators.required]),
+      prenom: new FormControl ('', [Validators.required]),
+      email: new FormControl ('', [Validators.required]),
+      sujet: new FormControl ('', [Validators.required]),
+      message: new FormControl ('', [Validators.required])
+
+    });
+
   contacts: any;
   constructor(private contactService: ContactService ) { } 
 
-  ngOnInit() {
-    this.contact = new FormGroup({
-      fullname: new FormControl(null),
-      email: new FormControl(null),
-      topic: new FormControl(null),
-      message: new FormControl(null),
-
-    })
-  this.contactService.getContact().subscribe((data) => {
-      console.log(data);
-      this.contacts = data;
-  },(error) => {
-      console.log("error in the Service");
-    })
+  onSubmit() {
+    
+  console.log("test")
+    this.contactService.Contact(this.contact.value).subscribe({
+      next: (res) => {
+        console.log(res)
+      },
+      error: (e) => {
+        console.log(e)
+        this.errorMessage = e.error.message;
+      },
+    });
 }
 
-  onSubmit() {
-    console.log(this.contact);
+  ngOnInit() {
+
+
   }
 
 }

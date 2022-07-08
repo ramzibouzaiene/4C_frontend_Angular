@@ -1,33 +1,55 @@
-<section>
-<div class="login-page">
-      <div class="form">
-        <div class="login">
-          <div class="login-header">
-            <h2>Se Connecter</h2>
+<section>  
+  <div class="alert" *ngIf="alert" class="alert alert-success alert-dismissible face show" role="alert"> <strong>Succès!</strong> Vous êtes connecté.
+ </div>
+  <div class="bg">
+    <div class="login-page">
+          <div class="form">
+            <div class="login">
+              <div class="login-header">
+                <h2>Connecter</h2>
+                <hr>
+              </div>
+            </div>
+            <form class="login-form" [formGroup]="login">
+              <input type="email" formControlName="email" placeholder="Email" />
+              <div *ngIf="f['email'].touched && f['email'].invalid" class=" alert-danger" style="padding-right: -10px;">
+              <div *ngIf="f['email'].errors && f['email'].errors['required']">L' e-mail est requis.</div>
+              <div *ngIf="f['email'].errors && f['email'].errors['email']">Entrez une adresse email valide.</div>
+              </div>
+
+              <input type="password" formControlName="password" placeholder="Mot de passe" />
+        
+              
+              <div class="text-center p-t-90">
+                <a class="txt1" (click)="triggerModal(modalData)">
+                 Mot de passe oublié
+                </a>
+                <ng-template #modalData let-modal>
+                <div class="modal-header">
+                  <h5 class="modal-title" id="modal-basic-title">Vous avez oublié votre mot de passe ?</h5>
+                  <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+                    <span aria-hidden="true">×</span>
+                  </button>
+                </div>
+                <div class="modal-body">
+                  <form [formGroup]="forgetpass">
+                    <div class="form-group">
+                      <p>Courrier électronique</p>
+                      <input class="form-control input-lg" placeholder="Votre E-mail" name="email" type="email" formControlName="email">
+                    </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                  <button type="submit" (click)="Submit()" class="btn btn-primary">Envoyer</button>
+                  <button type="button" class="btn btn-danger" (click)="modal.close('Save click')">Fermer</button>
+                </div>
+                
+              </ng-template>
+              </div>
+              <button type="submit" (click)="onSubmit()" [disabled]="login.invalid">Connexion</button>
+              <p class="message"><span>Non enregistré?</span> <a routerLink="/signup">Créer un compte</a></p>
+            </form>
           </div>
         </div>
-        <form class="login-form" [formGroup]="login">
-          <input type="text" placeholder="Email ou Pseudo" formControlName="email"/>
-          <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
-          <div *ngIf="f['email'].errors && f['email'].errors['required']">L' e-mail est requis.</div>
-          <div *ngIf="f['email'].errors && f['email'].errors['email']">Entrez une adresse email valide.</div>
-          </div>
-
-          <input type="password" placeholder="Mot de passe" formControlName="password"/>
-          <div class="contact100-form-checkbox">
-            <input class="input-checkbox100" id="ckb1" type="checkbox" name="remember-me" formControlName="remember-me">
-            <label class="label-checkbox100" for="ckb1">
-              Mémoriser le mot de passe ?
-            </label>
-          </div>
-          <div class="text-center p-t-90">
-            <a class="txt1" href="#">
-             Mot de passe oublié
-            </a>
-          </div>
-          <button type="submit" (click)="onSubmit()" [disabled]="login.invalid">Connexion</button>
-          <p class="message">Non enregistré? <a routerLink="/signup">Créer un compte</a></p>
-        </form>
       </div>
-    </div>
 </section>

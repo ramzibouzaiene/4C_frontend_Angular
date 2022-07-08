@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { MediaService } from '../services/media.service';
-
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-media',
@@ -10,13 +10,15 @@ import { MediaService } from '../services/media.service';
 })
 export class MediaComponent implements OnInit {
 
-  media : any;
+  albums : any;
+  storageUrl=environment.storageUrl;
+
   constructor(private mediaService: MediaService) { }
 
   ngOnInit(){
     this.mediaService.getMedia().subscribe((data) =>{
       console.log(data);
-      this.media = data;
+      this.albums = data;
     }, (error) => {
       console.log("error in the Service");
     })

@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { EventsService } from '../services/events.service';
 import {ActivatedRoute} from '@angular/router';
+import { environment } from '../../environments/environment';
+
 @Component({
   selector: 'app-event',
   templateUrl: './event.component.html',
@@ -8,8 +10,9 @@ import {ActivatedRoute} from '@angular/router';
   providers: [EventsService]
 })
 export class EventComponent implements OnInit {
-
-  events: any;
+  activites: any;
+  isReadMore = true;
+  storageUrl=environment.storageUrl;
   
   constructor(private eventsService: EventsService , private route : ActivatedRoute ) { } 
 
@@ -17,9 +20,9 @@ export class EventComponent implements OnInit {
   
   ngOnInit() { 
     console.log(this.id)
-    this.eventsService.getEvents(this.id).subscribe((data) => {
+    this.eventsService.getActivites(this.id).subscribe((data) => {
       console.log(data);
-      this.events = data;
+      this.activites = data;
     }, (error) => {
       console.log("error in the Service");
     })

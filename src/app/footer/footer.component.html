@@ -16,40 +16,39 @@
     </div>
 
     <div class="footer-top">
-      <div class="container">
-        <div class="row">
+      <div class="container" *ngIf="footer">
+        <div class="row" >
 
           <div class="col-lg-3 col-md-6 footer-links">
-            <h4>Lien Utils</h4>
+            <h4>Liens Utils</h4>
             <ul>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://www.issatso.rnu.tn/fo/index.php">Issat Sousse</a></li>
-              <li><i class="bx bx-chevron-right"></i> <a href="http://www.uc.rnu.tn/">Université du Sousse</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href=#>Issat Sousse</a></li>
+              <li><i class="bx bx-chevron-right"></i> <a href="#">Universite De Sousse</a></li>
             </ul>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-links">
             <h4>Google Map</h4>
-            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3235.4840698564453!2d10.6376987!3d35.8125973!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfe8bdcb107b21c72!2sHigher%20Institute%20of%20Applied%20Science%20and%20Technology%20of%20Sousse!5e0!3m2!1sen!2stn!4v1646938399542!5m2!1sen!2stn" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe> 
+            <p ></p>
+          <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d3235.4840698564453!2d10.6376987!3d35.8125973!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xfe8bdcb107b21c72!2sHigher%20Institute%20of%20Applied%20Science%20and%20Technology%20of%20Sousse!5e0!3m2!1sen!2stn!4v1646938399542!5m2!1sen!2stn" width="100%" height="200" frameborder="0" style="border:0" allowfullscreen=""></iframe>
           </div>
 
           <div class="col-lg-3 col-md-6 footer-contact">
             <h4>Coordonnées</h4>
             <p>
-              Rue ibn Khaldun <br>
-              Cité Taffala, Sousse 4003<br>
-              TN <br><br>
-              <strong>Phone:</strong> +216 95 012 645<br>
-              <strong>Email:</strong> 4c.issatso@gmail.com<br>
+              {{footer.adresse}} <br>
+              {{footer.tel}}<br>
+              {{footer.email}}
             </p>
 
           </div>
 
           <div class="col-lg-3 col-md-6 footer-info">
             <h3>4C Issat Sousse</h3>
-            <p>Nous Visons L'amélioration De L’insertion Professionnelle Des Diplômés De Notre Institut ISSAT Sousse.</p>
+            <p>{{footer.description}}</p>
             <div class="social-links mt-3">              
-              <a href="https://www.facebook.com/4CISSATSousse/" class="facebook"><i class="bx bxl-facebook"></i></a>
-              <a href="https://www.linkedin.com/company/4c-issat-sousse/" class="linkedin"><i class="bx bxl-linkedin"></i></a>
+              <a href="{{footer.facebook}}" class="facebook"><i class="bx bxl-facebook"></i></a>
+              <a href="{{footer.linkedin}}" class="linkedin"><i class="bx bxl-linkedin"></i></a>
             </div>
           </div>
 
@@ -59,11 +58,11 @@
 
     <div class="container">
       <div class="copyright">
-        &copy; Copyright <strong><span>4C Issat Sousse</span></strong>. All Rights Reserved
+        &copy; Copyright <strong><span>4C Issat Sousse</span></strong>. Tous les droits sont réservés
       </div>
-      <div class="credits">
+     <!-- <div class="credits">
         Designed by <a href=""></a>
-      </div>
+      </div>-->
     </div>
   </footer>
 

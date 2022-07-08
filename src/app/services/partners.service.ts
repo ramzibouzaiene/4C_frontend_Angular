@@ -9,7 +9,7 @@ import { throwError } from 'rxjs';
 })
 export class PartnersService {
   
-  private partners_api_url: string = 'http://127.0.0.1:8000/api/partenaires';
+  private partners_api_url: string = 'http://127.0.0.1:8000/api/partners';
 
   constructor(private http: HttpClient) { }
 

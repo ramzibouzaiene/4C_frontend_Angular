@@ -1,3 +1,4 @@
+
 <!-- ======= Hero Section ======= -->
 <section id="hero" class="d-flex flex-column justify-content-end align-items-center">
     <div id="heroCarousel" data-bs-interval="5000" class="container carousel carousel-fade" data-bs-ride="carousel">
@@ -172,6 +173,7 @@
             </div>
           </div>
         </div> 
+        
 
       </div>
     </section>
@@ -185,32 +187,12 @@
           <p>Ce Que Nous Offrons ?</p>
       </div>
   
-  <div class="containeer" data-aos="zoom-out">
-    <div class="imgbox">
-    <img src="assets/img/icons/icon13.png"> <span class="txtbelow">TECHNICAL SKILLS</span>
+ 
+    <div class="imgbox" *ngFor="let s of services">
+    <img src="{{storageUrl}}{{s.logo}}"> <span class="txtbelow">{{s.nom}}</span>
     </div>
-    <div class="imgbox">
-    <img src="assets/img/icons/icon3.png"> <span class="txtbelow">SOFT SKILLS</span>
-    </div>
-    <div class="imgbox">
-    <img src="assets/img/icons/icon2.png"> <span class="txtbelow">CERTIFIACTION</span>
-    </div>
-    <div class="imgbox">
-    <img src="assets/img/icons/icon4.png"> <span class="txtbelow">ENTREPRENEURIAT</span> 
-    </div>
-    <div class="imgbox">
-    <img src="assets/img/icons/icon5.png"> <span class="txtbelow">RECHERCHE D'EMPLOI</span> 
-    </div>
-    <div class="imgbox">
-    <img src="assets/img/icons/icon6.png"> <span class="txtbelow">JOURNÉE CARRIÈRE</span> 
-    </div>
-    <div class="imgbox">
-    <img src="assets/img/icons/icon8.png"> <span class="txtbelow">RÉSEAUTAGE</span> 
-    </div>
-    <div class="imgbox">
-    <img src="assets/img/icons/icon7.png"> <span class="txtbelow">PARTENARIAT</span> 
-    </div>
-  </div>
+    
+
   </div>
 </section>
 <!-- End Services Section -->
@@ -220,28 +202,33 @@
       <div class="container">
 
         <div class="section-title" data-aos="zoom-out">
-          <h2>4C IssatSo</h2>
+          <h2>ACTIVITES</h2>
           <p>CE QUE NOUS AVONS FAIT</p>
         </div>
-
+        <div class="homeact" >
+          <!--
         <ul id="portfolio-flters" class="d-flex justify-content-end" data-aos="fade-up">
           <li data-filter="*" class="filter-active">Tous</li>
           <li data-filter=".filter-app">Evénement</li>
           <li data-filter=".filter-card">Formation</li>
-        </ul>
+        </ul> -->
 
-        <div class="row portfolio-container" data-aos="fade-up">
+        <div class="row portfolio-container" data-aos="fade-up" >
 
-          <div class="col-lg-4 col-md-6 portfolio-item filter-card">
-            <div class="portfolio-img"><img src="assets/img/activites/act1.jpg" class="img-fluid" alt=""></div>
+          <div class="col-lg-4 col-md-6 portfolio-item filter-card" *ngFor="let a of activites" >
+            <div class="portfolio-img">
+              <img src="{{storageUrl}}{{a.cover}}" class="img-fluid">
+            </div>
             <div class="portfolio-info">
-              <h4>Formation Avancee En Machine Learning</h4>
-              <p>Formation</p>
-              <a href="assets/img/activites/act1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Formation Avancee En Machine Learning"><i class="bx bx-plus"></i></a>
-              <!-- <a href="portfolio-details.html" class="details-link" title="More Details"><i class="bx bx-link"></i></a> -->
+              <h4>{{a.titre}}</h4>
+              <h5 style="color: #FFF;">{{a.date_deb | date}}</h5>
+              
+              <!--
+              <a href="assets/img/activites/act1.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="{a.titre}"><i class="bx bx-plus"></i></a> -->
+              <a [routerLink]="['/actdetail' , a.id]" class="details-link" title="More Details"><i class="bx bx-link"></i></a>
             </div>
           </div>
-
+          <!--
           <div class="col-lg-4 col-md-6 portfolio-item filter-card">
             <div class="portfolio-img"><img src="assets/img/activites/act2.jpg" class="img-fluid" alt=""></div>
             <div class="portfolio-info">
@@ -312,38 +299,37 @@
               <p>Evénement</p>
               <a href="assets/img/activites/act9.jpg" data-gallery="portfolioGallery" class="portfolio-lightbox preview-link" title="Journée Start Up et Entrepreneuriat JSE 2021"><i class="bx bx-plus"></i></a>
             </div>
-          </div>
+          </div> -->
 
         </div>
-
+      </div>
       </div>
     </section>
 <!-- End Activities Section -->
 
 <!-- ======= Team Section ======= -->
-<section id="team" class="team">
+<section  class="team">
       <div class="container">
         <div class="section-title" data-aos="zoom-out">
           <h2>Equipe</h2>
           <p>Notre Equipe</p>
         </div>
         <div class="row">
-          <div class="col-lg-6">
+          <div class="col-lg-6" id="team" *ngFor="let team of teams">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="100">
-              <div class="pic"><img src="assets/img/team/mounir.jpg" class="img-fluid" alt=""></div>
+              <div class="pic"><img src="{{storageUrl}}{{team.photo}}" class="img-fluid" alt=""></div>
               <div class="member-info">
-                <h4>Mounir FRIJA</h4>
-                <span>Directeur Centre</span>
-                <p>E-Mail: mounir.frija2021@gmail.com</p>
+                <h4>{{team.nom_complet}}</h4>
+                <span>{{team.position}}</span>
+                <p>{{team.email}}</p>
                 <div class="social">
-                  <a href=""><i class="ri-twitter-fill"></i></a>
-                  <a href=""><i class="ri-facebook-fill"></i></a>
-                  <a href=""><i class="ri-instagram-fill"></i></a>
-                  <a href=""> <i class="ri-linkedin-box-fill"></i> </a>
+                  <a href="{{team.facebook }}"><i class="ri-facebook-fill"></i></a>
+                  <a href="{{team.linkedin }}"> <i class="ri-linkedin-box-fill"></i> </a>
                 </div>
               </div>
             </div>
           </div>
+          <!--
           <div class="col-lg-6 mt-4 mt-lg-0">
             <div class="member d-flex align-items-start" data-aos="zoom-in" data-aos-delay="200">
               <div class="pic"><img src="" class="img-fluid" alt=""></div>
@@ -391,7 +377,7 @@
                 </div>
               </div>
             </div>
-          </div>
+          </div>-->
         </div>
       </div>
 </section>
@@ -471,10 +457,10 @@
           <div class="swiper-pagination"></div>
         </div>
       </div>
-</section>
+</section> -->
 <!-- End Testimonials Section -->
 
-<section class="blog_section">
+<!-- <section class="blog_section">
             <div class="container">
               <div class="section-title" data-aos="zoom-out">
                 <h2>Blog</h2>
@@ -482,7 +468,7 @@
               </div>
                 <div class="blog_content">
                     <div class="owl-carousel owl-theme">
-                        <div class="blog_item">
+                        <div class="blog_item col-md-6">
                             <div class="blog_image">
                                 <img class="img-fluid" src="src/assets/img/activites/act1">
                                 <span><i class="icon ion-md-create"></i></span>
@@ -499,7 +485,7 @@
                                 <a href="#">Lire la suite<i class="icofont-long-arrow-right"></i></a>
                             </div>
                         </div>                        
-                        <div class="blog_item">
+                        <div class="blog_item col-md-6">
                             <div class="blog_image">
                                 <img class="img-fluid" src="src/assets/img/activites/act7">
                                 <span><i class="icon ion-md-create"></i></span>
@@ -516,7 +502,7 @@
                                 <a href="#">Lire la suite<i class="icofont-long-arrow-right"></i></a>
                             </div>
                         </div>                        
-                        <div class="blog_item">
+                        <div class="blog_item col-md-6">
                             <div class="blog_image">
                                 <img class="img-fluid" src="src/assets/img/activites/act2" alt="images not found">
                                 <span><i class="icon ion-md-create"></i></span>
@@ -536,30 +522,18 @@
                     </div>
                 </div>
             </div>
-        </section>
+        </section> -->
 </main>
 <!-- End #main -->
 
 <!-- Sponsors logo -->
 <section class="section pb-0">
   <div class="container" id="sponsorpics">
-    <div class="client-logo-slider d-flex" data-aos="zoom-in">
-      <div>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="assets/img/sponsor/giz.png" alt="client-logo"></a>
+    <div class="client-logo-slider d-flex" data-aos="zoom-in" >
+      <div *ngFor="let p of partners">
+      <img src="{{storageUrl}}{{p.logo}}" class="d-unset img-fluid" >
       </div>
-      <div>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="assets/img/sponsor/issatso1.png" alt="client-logo"></a>
-      </div>
-      <div>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="assets/img/sponsor/univ1.png" alt="client-logo"></a>
-      </div>
-      <div>
-      <a href="#" class="text-center d-block outline-0 p-4"><img class="d-unset img-fluid"
-          src="assets/img/sponsor/univsousse.png" alt="client-logo"></a>
-      </div>
+    
     </div>
   </div>
 </section>

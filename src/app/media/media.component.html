@@ -13,18 +13,20 @@
             
           </div>
           <div class="section-title" data-aos="zoom-out">
-          <h2>Media</h2>
-          <p>4C Issat Sousse</p>
+          <h2>4C Issat Sousse</h2>
+          <p>Media</p>
         </div>
         </div>
       </div>
 </section>
 <!-- ======= Media Section ======= -->
 <section class="container">
-  <div class="section-title" data-aos="zoom-out">
-      <h2>Media</h2>
-      <p>4C Issat Sousse</p>
+  <div class="gallery" *ngFor="let album of albums">
+      <a [routerLink]="['/photos']">
+      <img src="{{storageUrl}}{{album.cover}}"></a><br>
+      <h5 class="titre">{{album.titre}}</h5>
   </div>
+  <!--
   <div class="col l5" style="padding: 20px; ">
         <video class="video4c" controls="" poster="/Content/images/4cvid.png">
           <source src="assets/img/media/videos/4C 1.mp4" type="video/mp4">
@@ -34,7 +36,7 @@
         <video class="video4c" controls="" poster="/Content/images/4cvid.png">
           <source src="assets/img/media/videos/4C 2.mp4" type="video/mp4">
         </video>
-  </div>
+  </div>-->
 
   
 </section>

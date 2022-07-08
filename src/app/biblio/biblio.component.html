@@ -5,7 +5,7 @@
         <div class="row" data-aos="zoom-out">
           <div class="d-flex justify-content-between align-items-center">
             <ol>
-            <li><a href="index.html">Accueil</a></li>
+            <li><a routerLink='/home'>Accueil</a></li>
             <li>Biothéque 4C</li>
           </ol>
           </div>
@@ -13,8 +13,8 @@
             
           </div>
           <div class="section-title" data-aos="zoom-out">
-          <h2>Notre Biothéque</h2>
-          <p>4C Issat Sousse</p>
+          <h2>4C Issat Sousse</h2>
+          <p>Notre Bibliothéque</p>
         </div>
         </div>
 
@@ -22,46 +22,46 @@
       </section>
 
 <!-- ======= Event Section ======= -->
-  <section id="bib" class="white-section blog-section single-post-section">
-    <div class="container">
-    <div class="biblio">
-      <div class="contentBx">
-        <h2>Bibliothéque</h2>
-        <div class="size">
-          <h3>Size</h3>
-        </div>
-        <a href="#">Read More</a>
-      </div>
-    </div>
-  </div>
-  
-  <div class="container">
-    <div class="biblio">
+<section>
+   <script type="text/javascript">
+    var $table = $('table.scroll'),
+    $bodyCells = $table.find('tr:first').children(),
+    colWidth;
+
+// Adjust the width of thead cells when window resizes
+$(window).resize(function() {
+    // Get the tbody columns width array
+    colWidth = $bodyCells.map(function() {
+        return $(this).width();
+    }).get();
+    
+    // Set the width of thead columns
+    $table.find('tr').children().each(function(i, v) {
+        $(v).width(colWidth[i]);
+    });    
+}).resize(); // Trigger resize handler
+</script> 
+    <div class="container" *ngFor="let sujet of libraries">
+        <h2 class="btitle" data-aos="zoom-in">{{sujet.type}}</h2>
+        <table data-aos="zoom-in">
+            <thead>
+            <tr>
+                <th>Titre</th>
+                <th>Description</th>
+                <th>Télécharger</th>
+            </tr>
+            </thead>
+        <tbody>
+            <tr *ngFor="let doc of sujet.documents">
+                <td>{{doc.titre}}</td>
+                <td>{{doc.description}}</td>
+                <td><a [href]="storageUrl+getlink(doc.lien) " target="_blanck">Télechager</a></td>
+
+            </tr>
+        </tbody>
+    
+        </table>
       
-      <div class="contentBx">
-        <h2>Bibliothéque Pole</h2>
-        <div class="size">
-          <h3>Size</h3>
-        </div>
-        <a href="#">Read More</a>
-      </div>
     </div>
-  </div>
-
-  <div class="container">
-    <div class="biblio">
-      <div class="contentBx">
-        <h2>Livres</h2>
-        <div class="size">
-          <h3>Size</h3>
-        </div>
-        <a href="#">Read More</a>
-      </div>
-    </div>
-  </div>
-
-  <div>
-    <a target="_blank" href="assets/pdf/pdf1.pdf" title="">Livre</a>
-  </div>
 </section>
     <!-- End Event Section -->

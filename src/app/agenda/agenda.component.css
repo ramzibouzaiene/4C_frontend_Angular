@@ -1,0 +1,5 @@
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
+#agenda {
+	font-family: Arial;
+}

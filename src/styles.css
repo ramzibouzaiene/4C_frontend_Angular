@@ -2,6 +2,8 @@
 # General
 --------------------------------------------------------------*/
 @import "~bootstrap/dist/css/bootstrap.min.css";
+@import "../node_modules/angular-calendar/css/angular-calendar.css";
+
 
 
 html {
@@ -33,6 +35,7 @@ h1, h2, h3, h4, h5, h6 {
 /*--------------------------------------------------------------
 # Back to top button
 --------------------------------------------------------------*/
+/*
 .back-to-top {
   position: fixed;
   visibility: hidden;
@@ -58,7 +61,7 @@ h1, h2, h3, h4, h5, h6 {
 .back-to-top.active {
   visibility: visible;
   opacity: 1;
-}
+} */
 
 /*--------------------------------------------------------------
 # Disable AOS delay on mobile

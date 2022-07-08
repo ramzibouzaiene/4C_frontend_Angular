@@ -9,15 +9,17 @@ import { throwError } from 'rxjs';
 })
 export class OffresService {
 
-  private offre_api_url: string ='http://127.0.0.1:8000/api/offres';
+  private offres_api_url: string ='http://127.0.0.1:8000/api/offres';
+  private offre_api_url: string ='http://127.0.0.1:8000/api/offre';
 
   constructor(private http:HttpClient) { }
 
-  getOffres(): Observable<any> {
-    return this.http.get(this.offre_api_url)
+  getOffres(id): Observable<any> {
+    return this.http.get(this.offres_api_url+'/'+id)
   }
-  throwError(error: any) {
-    console.log(Error);
+  
+  getOffre(id): Observable<any> {
+    return this.http.get(this.offre_api_url+'/'+id)
   }
 
 }

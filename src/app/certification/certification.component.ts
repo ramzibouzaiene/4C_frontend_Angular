@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { CertificationsService } from '../services/certifications.service';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-certification',
@@ -7,9 +9,19 @@ import { Component, OnInit } from '@angular/core';
 })
 export class CertificationComponent implements OnInit {
 
-  constructor() { }
+  certifs:any;
+  storageUrl=environment.storageUrl;
 
-  ngOnInit(): void {
+  constructor(private certificationsService:CertificationsService) { }
+
+  ngOnInit() {
+    
+    this.certificationsService.getCertification().subscribe((data) => {
+      console.log(data);
+      this.certifs = data;
+    }, (error) => {
+      console.log("error in the Service");
+    })
   }
 
 }

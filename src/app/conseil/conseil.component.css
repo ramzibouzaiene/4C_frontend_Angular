@@ -1,0 +1,35 @@
+.para {
+font-family: Roboto, "Helvetica Neue", sans-serif;
+font-size: 20px;
+font-weight: 500px;
+border: none;
+background-color: #edede9;
+color: #212529;
+padding: 10px;
+text-transform: capitalize;
+width: 70%;
+height: 30%;
+box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
+}
+
+h3 {
+  text-transform: uppercase;
+  font-family:Arial ;
+  color: #EC9B3B;
+}
+
+h5 {
+	color: #03045e;
+  padding: 17px;
+  font-family:Arial ;
+  text-transform: uppercase;
+  margin-top: -10px;
+}
+
+img {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 20px
+}

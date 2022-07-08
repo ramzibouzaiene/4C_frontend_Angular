@@ -1,10 +1,12 @@
-import { Component, OnInit } from '@angular/core';
-import { NotificationService } from '../services/notification.service';
+import { Component, OnInit, ViewChild } from '@angular/core';
 import { FormGroup, Validators, FormControl } from '@angular/forms';
 import { AuthService } from '../services/auth.service';
 import { TokenStorageService } from '../services/token-storage.service';
 import { Router } from '@angular/router';
 import { User } from '../core/models/user.modul';
+import {ModalDismissReasons, NgbModal} from '@ng-bootstrap/ng-bootstrap';
+import { ForgetpassService } from '../services/forgetpass.service';
+
 
 
 
@@ -15,10 +17,15 @@ import { User } from '../core/models/user.modul';
   providers: [AuthService]
 })
 export class LoginComponent implements OnInit {
+  closeModal: string;
 
   login = new FormGroup({
     email: new FormControl('', [Validators.required, Validators.email]),
     password: new FormControl('')
+  });
+
+  forgetpass= new FormGroup({
+    email: new FormControl('',[Validators.required, Validators.email])
   });
 
   isLoggedIn = false;
@@ -26,28 +33,32 @@ export class LoginComponent implements OnInit {
   errorMessage = '';
   roles: string[] = [];
   user='1';
+  alert:any;
 
   constructor(
-    private notifyService : NotificationService, 
     private authService: AuthService, 
     private tokenStorage: TokenStorageService, 
-    private router: Router
-    ) { }
-   
-  showToasterSuccess(){
-      this.notifyService.showSuccess("Data shown successfully !!", "tutsmake.com")
+    private router: Router,
+    private modalService: NgbModal,
+    private forgetpassService:ForgetpassService
+    ) {}
+
+   triggerModal(content) {
+    this.modalService.open(content, {ariaLabelledBy: 'modal-basic-title'}).result.then((res) => {
+      this.closeModal = `Closed with: ${res}`;
+    }, (res) => {
+      this.closeModal = `Dismissed ${this.getDismissReason(res)}`;
+    });
   }
-   
-  showToasterError(){
-      this.notifyService.showError("Something is wrong", "tutsmake.com")
-  }
-   
-  showToasterInfo(){
-      this.notifyService.showInfo("This is info", "tutsmake.com")
-  }
-   
-  showToasterWarning(){
-      this.notifyService.showWarning("This is warning", "tutsmake.com")
+  
+  private getDismissReason(reason: any): string {
+    if (reason === ModalDismissReasons.ESC) {
+      return 'by pressing ESC';
+    } else if (reason === ModalDismissReasons.BACKDROP_CLICK) {
+      return 'by clicking on a backdrop';
+    } else {
+      return  `with: ${reason}`;
+    }
   }
 
   ngOnInit() {
@@ -55,6 +66,7 @@ export class LoginComponent implements OnInit {
       this.isLoggedIn = true;
       this.roles = this.tokenStorage.getUser().roles;
       localStorage.setItem('SeesionUser',this.user)  
+      this.router.navigate(['/home']);
     }
   }
    
@@ -63,26 +75,42 @@ export class LoginComponent implements OnInit {
   }
    
   onSubmit(){
-    console.log(this.login.value);
+   
     const { email, password } = this.login.value;
     this.authService.login(email, password).subscribe({
       next: (data) => {
-        console.log(data)
+        
         this.tokenStorage.saveToken(data.token);
         this.tokenStorage.saveUser(data.user);
         this.isLoggedIn = true;
-        this.showToasterSuccess();
         this.isLoginFailed = false;
+        this.alert=true;
        // this.roles = this.tokenStorage.getUser().roles.roles_name;
-        this.router.navigate(['/home']);
+       location.reload()
+       // this.router.navigate(['/home']);
       },
       error: (e) => {
-        console.log(e)
+        
         this.errorMessage = e.error.message;
         this.isLoginFailed = true;
       },
     });
   }
 
+  Submit(){
+    this.forgetpassService.forget(this.forgetpass.value.email).subscribe({
+      next: (res) => {
+        console.log(res);
+        this.router.navigate(['/reset-password']);
+      },
+      error: (e) => {
+        console.log(e)
+        this.errorMessage = e.error.message;
+      },
+    });
+  }
+  closeAlert() {
+    this.alert=false;
+  }
 
 }

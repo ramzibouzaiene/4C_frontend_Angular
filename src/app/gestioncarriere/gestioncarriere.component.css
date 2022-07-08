@@ -1,0 +1,43 @@
+span {
+	background-color: #2ecc71;
+	margin: 10px;
+	color: #FFF;
+	margin-top: 20px;
+	margin-bottom: 10px;
+	box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+}
+
+h5 {
+	text-transform: capitalize;
+	color: #22223b;
+	background-color: ;
+
+}
+
+img {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 20px;
+  vertical-align: middle;
+}
+
+section {
+	font-family: Roboto, "Helvetica Neue", sans-serif;
+font-size: 20px;
+font-weight: 500px;
+}
+
+p {
+	margin-top: 20px;
+padding: 15px;
+box-shadow: rgba(50, 50, 93, 0.25) 0px 13px 27px -5px, rgba(0, 0, 0, 0.3) 0px 8px 16px -8px;
+background-color: #0582ca;
+color: #FFF;
+}
+
+.title {
+	background: none;
+	box-shadow: none;
+}

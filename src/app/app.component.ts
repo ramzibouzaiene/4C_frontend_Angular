@@ -1,6 +1,8 @@
 import { Component } from '@angular/core';
 import { observable } from 'rxjs';
 
+
+
 @Component({
   selector: 'app-root',
   templateUrl: './app.component.html',
@@ -10,5 +12,7 @@ import { observable } from 'rxjs';
 
 export class AppComponent {
   title = '4c_frontend';
+
+  constructor() {  }
   
 }

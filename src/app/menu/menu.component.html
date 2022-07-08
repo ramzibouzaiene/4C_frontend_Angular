@@ -12,7 +12,7 @@
 </div>
 
 <div class="headeer">
-</div>
+</div> 
 <!-- class=" d-flex align-items-center header-transparent "  -->
 <header id="header" role="navigation"> 
   <script>
@@ -36,11 +36,12 @@ function myFunction() {
 
       <nav id="navbar" class="navbar">
         <ul>
-          <li><a routerLink="">Accueil</a></li>
-          <li class="dropdown"><a href="#">Présentation<i class="bi bi-chevron-down"></i></a>
+          <li><a routerLink="/home">Accueil</a></li>
+          <li class="dropdown"><a href="">Présentation<i class="bi bi-chevron-down"></i></a>
             <ul>
               <li><a routerLink="/teams">Equipe 4C</a></li>
               <li><a routerLink="/media">Media</a></li>
+              <li><a routerLink="/blogs">Bloc</a></li>
               <li><a routerLink="/library">Biothéque 4C</a></li>
             </ul>
           </li>
@@ -48,7 +49,7 @@ function myFunction() {
             <ul>
               
             <li *ngFor="let type of types">
-              <a [routerLink]="['/events' , type.type ]">{{type.type}}</a>
+              <a [routerLink]="['/events' , type.id ]">{{type.type}}</a>
             </li>
            <!-- <li><a routerLink="/workshops">Workshops</a></li>
             <li><a routerLink="/journees">Journées</a></li>-->
@@ -56,10 +57,11 @@ function myFunction() {
           </li>
           <li class="dropdown"><a href="#">Services<i class="bi bi-chevron-down"></i></a>
             <ul>
-            <li><a routerLink="/trainings">Formation</a></li>
+            
             <li><a routerLink="/certification">Certification</a></li>
-            <li><a href="#">Conseil/Accompagnement</a></li>
-            <li><a href="#">Gestion De Carrière</a></li>
+            <li><a routerLink="/conseil">Conseil/Accompagnement</a></li>
+            <li><a routerLink="/gestioncarriere">Gestion De Carrière</a></li>
+         
           </ul>
           </li>
           <li class="dropdown"><a href="#">Partenaires<i class="bi bi-chevron-down"></i></a>
@@ -74,35 +76,29 @@ function myFunction() {
             <li *ngIf="!loggedIn" ><a routerLink="/login"><span class="glyphicon glyphicon-log-in" ></span> Login</a></li>
             <li *ngIf="loggedIn" ><a (click)="logout($event)" href="#"><span class="glyphicon glyphicon-log-in" ></span> Logout</a></li>
             <li *ngIf="loggedIn" ><a routerLink="profile"><span class="glyphicon glyphicon-log-in"></span> Profile</a></li>
-          </ul> 
-         <ul>
+          </ul> -->
+          
+         <ul *ngIf="!isLoggedIn">
           <li routerLink="/signup" class="button">S'inscrire</li>
           <li routerLink="/login" class="button1">Se Connecter</li>
-          </ul> -->
-          <ul> 
-          <li>
-          <div class="notification-icon right">
-            <i class="material-icons dp48">email</i>
-            <span class="num-count">2</span>
-          </div>
-          </li>
-          <li>
-          <div class="notification-icon right">
-            <i class="material-icons dp48">notifications</i>
-            <span class="num-count">13</span>
-          </div>
-          </li>
+          </ul>
+          
+          <ul  *ngIf="isLoggedIn"> 
+          
           <li class="dropdown"> 
             <a href="#">
             <div class="avatar">
-            <img src="assets/img/user.png"/></div></a>
+            <img src="{{storageUrl}}{{currentUser.avatar}}"/></div></a>
             <ul>
-              <h6 class="usertitle"> {{ currentUser.name }}</h6>
-              <hr style="height:2px;color:gray;background-color:gray">
-              <li class="user"><mat-icon>account_circle</mat-icon><a routerLink="/profile">Profil</a> </li>
-              <li class="user"><mat-icon>settings</mat-icon><a routerLink="/editprofile">Modifier le profil</a> </li>
-              <li class="user"><mat-icon>edit</mat-icon><a href="#">Créer un CV</a> </li>
-              <li class="user"><mat-icon>logout</mat-icon><a href="#">Deconnecté</a> </li> 
+            <!--  <h6 class="usertitle"> {{ currentUser.name }}</h6>
+              <hr style="height:2px;color:gray;background-color:gray">-->
+              <li class="user"><a routerLink="/profile/{{currentUser.id}}">Profil</a> </li>
+              <li class="user"><a routerLink="/editprofile/{{currentUser.id}}">Modifier le profil</a> </li>
+              <!--<li class="user"><a routerLink="/messages">Messages</a> </li>-->
+              <li class="user"><a routerLink="/reclamation">Réclamation</a> </li>
+              <li class="user"><a routerLink="/resume">Créer un CV</a> </li>
+              <li class="user"><a routerLink="/agenda">Agenda</a> </li>
+              <li class="user"><a (click)="logout()"  >Deconnecté</a> </li> 
             </ul>
           </li>
         </ul>

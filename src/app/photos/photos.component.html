@@ -1,0 +1,28 @@
+<!-- ======= Breadcrumbs ======= -->
+<section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-out">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+            <li><a routerLink="/home">Accueil</a></li>
+            <li>Media</li>
+          </ol>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            
+          </div>
+          <div class="section-title" data-aos="zoom-out">
+          <h2>4c Issat Sousse</h2>
+          <p>Les Photos</p>
+        </div>
+        </div>
+
+      </div>
+</section>
+
+<section class="container">
+  <div class="gallery" *ngIf="p">
+    <img src="{{storageUrl}}{{p.photos}}">
+  </div>
+</section>

@@ -1,54 +1,59 @@
 <section>
-<div class="login-page">
+  <div class="alert" *ngIf="alert" class="alert alert-success alert-dismissible face show" role="alert"> <strong>Succès!</strong> Votre compte a été créé.
+   </div>
+   
+
+<div class="signup-page">
       <div class="form">
-        <div class="login">
-          <div class="login-header">
-            <div class="login-header">
+        <div class="signup">
+          <div class="signup-header">
+            <div class="signup-header">
             <h2>Inscription</h2>
           </div>
           </div>
         </div>
         <hr>
-        <div class="accounttype">
-            <input type="radio" value="None" id="radioOne" name="account" checked/>
-            <label for="radioOne" class="radio" chec>Etudiant</label>
-            <input type="radio" value="None" id="radioTwo" name="account" />
-            <label for="radioTwo" class="radio">Enseignant</label>
+        <form class="signup-form" [formGroup]="signup" >
+        <div class="select">
+            <select formControlName="role_id" name="role_id" id="format">
+              <option selected disabled>Vous êtes un</option>
+              <option value="4">Etudiant</option>
+              <option value="3">Enseignant</option>
+            </select>
         </div>
-        <form class="login-form" [formGroup]="signup" >
+        
           
         <hr>
-          <input type="text" name="name" id="name" placeholder="Votre CIN" formControlName="cin" required/>
-          <div *ngIf="f['cin'].touched && f['cin'].invalid" class="alert alert-danger">
+          <input type="number" name="name" id="name" placeholder="Votre CIN" formControlName="cin" required/>
+          <div *ngIf="f['cin'].touched && f['cin'].invalid" class=" alert-danger">
           <div *ngIf="f['cin'].errors && f['cin'].errors['required']">CIN est requis.</div>
           </div>
-
           <input type="text" name="name" id="name" placeholder="Nom" formControlName="name" required/>
-          <div *ngIf="f['name'].touched && f['name'].invalid" class="alert alert-danger">
+          <div *ngIf="f['name'].touched && f['name'].invalid" class=" alert-danger">
           <div *ngIf="f['name'].errors && f['name'].errors['required']">Nom est requis.</div>
           <div *ngIf="f['name'].errors && f['name'].errors['minlength']">Le nom doit comporter 3 caractères.</div>
           </div>
-
           <input type="text" name="name" id="name" placeholder="Prénom" formControlName="lastname"required/>
-          <div *ngIf="f['lastname'].touched && f['lastname'].invalid" class="alert alert-danger">
+          <div *ngIf="f['lastname'].touched && f['lastname'].invalid" class=" alert-danger">
           <div *ngIf="f['lastname'].errors && f['lastname'].errors['required']">Prénom est requis.</div>
           <div *ngIf="f['lastname'].errors && f['lastname'].errors['minlength']">Le prénom doit comporter 3 caractères.</div>
           </div>
 
-          <input type="text" name="name" id="name" placeholder="Email" formControlName="email" required/>
-          <div *ngIf="f['email'].touched && f['email'].invalid" class="alert alert-danger">
+          <input type="email" name="name" id="name" placeholder="Email" formControlName="email" required/>
+          <div *ngIf="f['email'].touched && f['email'].invalid" class=" alert-danger">
           <div *ngIf="f['email'].errors && f['email'].errors['required']">L' e-mail est requis.</div>
           <div *ngIf="f['email'].errors && f['email'].errors['email']">Entrez une adresse email valide.</div>
         </div>
 
           <input type="password" name="name" id="name" placeholder="Password" formControlName="password" required/>
-          <div *ngIf="f['password'].touched && f['password'].invalid" class="alert alert-danger">
+          <div *ngIf="f['password'].touched && f['password'].invalid" class=" alert-danger">
+          <div *ngIf="f['password'].errors && f['password'].errors['required']">Minimum 6 caractères.</div>
           <div *ngIf="f['password'].errors && f['password'].errors['minlength']">
           Minimum 6 caractères.</div>
           </div>
-          <input type="password" name="name" id="name" placeholder="Confirmer votre mot de passe" formControlName="confirmation" required/>
+          <input type="password" name="name" id="name" placeholder="Confirmer votre mot de passe" formControlName="password_confirmation" required/>
           <button type="submit" (click)="onSubmit()" [disabled]="signup.invalid">Crée</button>
-          <p class="message">Deja un compte? <a routerLink="/login">Connecter</a></p>
+          <p class="message"><span>Deja un compte?</span> <a routerLink="/login">Connecter</a></p>
         </form>
       </div>
     </div>

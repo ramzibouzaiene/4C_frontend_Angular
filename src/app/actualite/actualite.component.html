@@ -1,0 +1,43 @@
+<!-- ======= Breadcrumbs ======= -->
+<section id="cta" class="cta">
+      <div class="container">
+
+        <div class="row" data-aos="zoom-out">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+            <li><a routerLink='/home'>Accueil</a></li>
+            <li>Blocs</li>
+          </ol>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            
+          </div>
+          <div class="section-title" data-aos="zoom-out">
+          <h2>4C Issat Sousse</h2>
+          <p>Les Blocs</p>
+        </div>
+        </div>
+
+      </div>
+</section>
+
+<section class="bg-light py-4 my-5">
+    <div class="container">
+        <div class="row" >
+            <div class="col-md-6 col-lg-4" >
+                <div class="card my-3" *ngFor="let blog of blogs">
+                    <div class="card-thumbnail">
+                        <img src="{{storageUrl}}{{blog.image}}">
+                    </div>
+                    <div class="card-body">
+                        <h3 class="card-title">{{blog.titre}}</h3>
+                        <p class="card-text">{{blog.petitdescription}}</p>
+                        <a [routerLink]="['/blogs' , blog.id]" class="btn btn-danger">Lire la suite</a>
+                    </div>
+                </div>
+            </div>
+
+            
+        </div>
+    </div>
+</section>

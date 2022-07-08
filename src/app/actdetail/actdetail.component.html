@@ -1,0 +1,123 @@
+<!-- ======= Breadcrumbs ======= -->
+<section id="cta" class="cta">
+      <div class="container">
+        <div class="row" data-aos="zoom-out">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+            <li><a routerLink="/home">Accueil</a></li>
+            <li>Actualités</li>
+          </ol>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            
+          </div>
+          <div class="section-title" data-aos="zoom-out">
+          <h2>4C Issat Sousse</h2>
+          <p *ngIf="a">{{a.titre}}</p>
+        </div>
+        </div>
+      </div>
+</section>
+
+
+<section id="informations">
+    <div class="container mt-5 mb-5">
+    <div class="card-columns"  *ngIf="a">
+      <div class="card mb-3">
+        <div class="card-body">
+          
+          <h5 class="card-text" [innerHTML]="a.titre" style="text-align: center;"></h5>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div>
+          <img src="{{storageUrl}}{{a.cover}}">
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Description:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="a.description"></p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">lieu:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="a.lieu"></p>
+        </div>
+      </div>
+       <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Temps:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="a.temps"></p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Date:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="a.date_deb"></p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Les Formateurs:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="a.formateurs"></p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Nous Partenaires:</h5>
+          <hr>
+          <img class="partner" src="{{storageUrl}}{{a.partenaires }}">
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Lien:</h5>
+          <hr>
+          <p class="card-text" *ngIf="!isLoggedIn">connectez-vous pour voir le formulaire</p>
+          <p class="card-text" *ngIf="isLoggedIn"><a href="{{a.Lien}}" target="_black" style="color:#FFF;">Click Ici</a></p>
+        </div>
+      </div>
+      <div class="card mb-3">
+        <div class="card-body">
+          <h5 class="card-title">Capacite:</h5>
+          <hr>
+          <p class="card-text" [innerHTML]="a.capacite"></p>
+        </div>
+      </div>
+    </div>
+    
+</div>
+</section>
+
+<section  class="container">
+  <div class="coms">
+  <div id="comments">
+      <div *ngFor="let c of allcom">
+        <div class="col-md-6">
+          <p>{{c.user_id}}</p>
+          <p class="com">{{c.comment}}</p>
+          <p style="color: #343a40;">{{c.created_at | date}}</p>
+          <hr style="color:#495057;opacity: 0.2;">
+        </div>
+      </div>
+       <div class="container" *ngIf="isLoggedIn">
+            <form [formGroup]="comments">
+              <textarea placeholder="Enter Votre Commentaire" formControlName="comment" name="comments" id="commentarea"></textarea>
+              <div class="date" *ngFor="let c of allcom">
+              
+              </div>
+                <div>
+                <button type="submit" (click)="onSubmit()">Commenter</button>
+                </div>
+            </form>
+      </div>
+      </div>
+    </div>
+</section>

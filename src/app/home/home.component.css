@@ -1,3 +1,5 @@
+
+
 /*--------------------------------------------------------------
 # Hero Section
 --------------------------------------------------------------*/
@@ -779,6 +781,10 @@
 # Team
 --------------------------------------------------------------*/
 
+#team {
+  padding-top: 20px;
+}
+
 .team .member {
   position: relative;
   box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.1);
@@ -1028,7 +1034,6 @@
   font-weight: 600;
   letter-spacing: 1px;
   margin-bottom: 20px;
-  cursor: pointer;
   -webkit-user-select: none;
   touch-action: none;
   will-change: transform;
@@ -1196,4 +1201,8 @@ img + span{
   background: #fff;
   border-color: #ff5e14;
   color: #ff5e14;
+}
+
+.blog_content {
+  display: inline-block;
 }

@@ -1,0 +1,107 @@
+<!-- ======= Breadcrumbs ======= -->
+<section id="cta" class="cta">
+      <div class="container">
+        <div class="row" data-aos="zoom-out">
+          <div class="d-flex justify-content-between align-items-center">
+            <ol>
+            <li><a routerLink="/home">Accueil</a></li>
+            <li>CV</li>
+          </ol>
+          </div>
+          <div class="col-lg-3 cta-btn-container text-center">
+            
+          </div>
+          <div class="section-title" data-aos="zoom-out">
+          <h2>4C Issat Sousse</h2>
+          <p>Créer Votre CV</p>
+        </div>
+        </div>
+      </div>
+</section> 
+
+<section>
+  <div class="container" id="resume1">
+    <form [formGroup]="resume">
+      <h4><b> Titre</b></h4>
+      <input type="text" formControlName="title" name="" placeholder="Votre Titre">
+      <h4><b> Profil</b></h4>
+      <textarea placeholder="Profil..." cols="100" rows="5" formControlName="profil">
+      </textarea>
+      <div style="text-align:left">
+    <button class="button-17" type="submit" (click)="Sub()">Enregister</button></div>
+    </form>
+      
+    
+      <h4><b>Expérience</b></h4>
+      <form [formGroup]="experience">
+    <table>
+      <tr>
+        <th>Titre</th>
+        <th>Entreprise</th>
+        <th>Description</th>
+        <th>Lieu</th>
+        <th>Date de Début</th>
+        <th>Date Fin</th>
+      </tr>
+      
+      <tbody>
+        <tr>
+          <td><input type="text" name="" placeholder="Votre Poste" formControlName="titre"></td>
+          <td><input type="text" name="" placeholder="Nom Entreprise" formControlName="entreprise"></td>
+          <td><input type="text" name="" placeholder="Description" formControlName="description"></td>
+          <td><input type="text" name="" placeholder="Lieu" formControlName="localisation"></td>
+          <td><input type="date" name="" formControlName="datedebut"></td>
+          <td><input type="date" name="" formControlName="datefin"></td>
+        </tr>   
+      </tbody>      
+    </table>
+     <div style="text-align:left">
+    <button class="button-17" type="submit" (click)="onSubmit()">Enregister</button></div>
+    </form>
+    
+
+      <h4><b>Formation</b></h4>
+      <form [formGroup]="education">
+    <table>
+      <tr>
+        <th>Diplome</th>
+        <th>Spécialité</th>
+        <th>Institut</th>
+        <th>Date de Début</th>
+        <th>Date Fin</th>
+      </tr>
+      <tbody>
+        <tr>
+          <td><input type="text" name="" placeholder="Votre Diplome" formControlName="diplome"></td>
+            <td><input type="text" name="" placeholder="Votre Spécialité" formControlName="specialite"></td>
+            <td><input type="text" name="" placeholder="Votre Institut" formControlName="institut"></td>
+          <td><input type="date" name="" formControlName="dated"></td>
+          <td><input type="date" name="" formControlName="datef"></td>
+        </tr> 
+      </tbody>
+    </table>
+    <div style="text-align:left">
+    <button class="button-17" type="submit" (click)="Submit()">Enregister</button></div> 
+     </form>
+   
+      <h4><b>Compétances</b></h4>
+      <form [formGroup]="skills">
+    <table>
+      <tr>
+        <th>Compétance</th>
+      </tr>
+      <tbody>
+        
+        <tr>
+          <td><input type="text" name="" placeholder="Votre Competance" formControlName="nom"></td>
+        </tr>
+      </tbody>
+    </table>
+    <div style="text-align:left">
+    <button class="button-17" type="submit" (click)="Submitt()">Enregister</button></div>
+    </form>
+  
+    <div style="text-align:center">
+    <button class="button-18" type="submit"  [routerLink]="['/completresume']">Générer CV</button></div>
+  </div>
+</section>

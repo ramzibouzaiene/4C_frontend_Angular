@@ -1,21 +1,36 @@
-.post-content {
-	display: inline;
-	padding-right: 100px;
-	padding-top: 50px;
-	width: 25%;
-	padding: 5px;
-	float: left;
-	text-align:center; 
+
+.certif {
+	display: block;
+  margin-left: auto;
+  margin-right: auto;
+  width: 50%;
+  margin-bottom: 20px;
 }
 
-h3 {
-	font-size: 20pw;
+.column {
+  float: left;
+  width: 33.33%;
+  padding: 5px;
+  width: 20%;
+  height: 20%;
+  padding-right: 10px;
+  padding-top: 20px;
 }
 
-.text1 {
-	font-size: 15px;
+.row::after {
+  content: "";
+  clear: both;
+  display: table;
 }
 
-.post-wrapper {
-	align-items: center;
+.def {
+font-family: Roboto, "Helvetica Neue", sans-serif;
+font-size: 20px;
+font-weight: 500px;
 }
+
+.column:hover {
+	transform: translateY(-2px);
+	cursor: pointer;
+}
+
