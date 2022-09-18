@@ -36,42 +36,41 @@ import { adapterFactory } from 'angular-calendar/date-adapters/date-fns';
 
 /* Components */
 import { AppComponent } from './app.component';
-import { MenuComponent } from './menu/menu.component';
-import { FooterComponent } from './footer/footer.component';
-import { HomeComponent } from './home/home.component';
-import { ContactComponent } from './contact/contact.component';
-import { JourneesComponent } from './journees/journees.component';
-import { EventComponent } from './event/event.component'; 
-import { PartnersComponent } from './partners/partners.component';
-import { SignupComponent } from './signup/signup.component';
-import { LoginComponent } from './login/login.component';
-import { FormationsComponent } from './formations/formations.component';
-import { MediaComponent } from './media/media.component';
-import { BiblioComponent } from './biblio/biblio.component';
-import { WorkshopsComponent } from './workshops/workshops.component';
-import { TeamComponent } from './team/team.component';
-import { OffresComponent } from './offres/offres.component';
-import { ProfileComponent } from './profile/profile.component';
-import { LogoutComponent } from './logout/logout.component';
-import { EditprofileComponent } from './editprofile/editprofile.component';
-import { MessagesComponent } from './messages/messages.component';
-import { ActualiteComponent } from './actualite/actualite.component';
+import { MenuComponent } from './components/menu/menu.component';
+import { FooterComponent } from './components/footer/footer.component';
+import { HomeComponent } from './components/home/home.component';
+import { ContactComponent } from './components/contact/contact.component';
+import { JourneesComponent } from './components/journees/journees.component';
+import { EventComponent } from './components/event/event.component';
+import { PartnersComponent } from './components/partners/partners.component';
+import { SignupComponent } from './components/signup/signup.component';
+import { LoginComponent } from './components/login/login.component';
+import { FormationsComponent } from './components/formations/formations.component';
+import { MediaComponent } from './components/media/media.component';
+import { BiblioComponent } from './components/biblio/biblio.component';
+import { WorkshopsComponent } from './components/workshops/workshops.component';
+import { TeamComponent } from './components/team/team.component';
+import { OffresComponent } from './components/offres/offres.component';
+import { ProfileComponent } from './components/profile/profile.component';
+import { LogoutComponent } from './components/logout/logout.component';
+import { EditprofileComponent } from './components/editprofile/editprofile.component';
+import { ActualiteComponent } from './components/actualite/actualite.component';
 import { environment } from '../environments/environment';
-import { PagedetailComponent } from './pagedetail/pagedetail.component';
+import { PagedetailComponent } from './components/pagedetail/pagedetail.component';
 import { SelectedOffrePipe } from './selected-offre.pipe';
-import { ActdetailComponent } from './actdetail/actdetail.component';
-import { CommentactiviteComponent } from './commentactivite/commentactivite.component';
-import { PhotosComponent } from './photos/photos.component';
-import { SearchComponent } from './search/search.component';
-import { AgendaComponent } from './agenda/agenda.component';
-import { ResetpasswordComponent } from './resetpassword/resetpassword.component';
-import { ResumeComponent } from './resume/resume.component';
-import { ReclamationComponent } from './reclamation/reclamation.component';
-import { CertificationComponent } from './certification/certification.component';
-import { ConseilComponent } from './conseil/conseil.component';
-import { GestioncarriereComponent } from './gestioncarriere/gestioncarriere.component';
-import { BlogdetailComponent } from './blogdetail/blogdetail.component';
-import { FinishresumeComponent } from './finishresume/finishresume.component';
+import { ActdetailComponent } from './components/actdetail/actdetail.component';
+import { CommentactiviteComponent } from './components/commentactivite/commentactivite.component';
+import { PhotosComponent } from './components/photos/photos.component';
+import { SearchComponent } from './components/search/search.component';
+import { AgendaComponent } from './components/agenda/agenda.component';
+import { ResetpasswordComponent } from './components/resetpassword/resetpassword.component';
+import { ResumeComponent } from './components/resume/resume.component';
+import { ReclamationComponent } from './components/reclamation/reclamation.component';
+import { CertificationComponent } from './components/certification/certification.component';
+import { ConseilComponent } from './components/conseil/conseil.component';
+import { GestioncarriereComponent } from './components/gestioncarriere/gestioncarriere.component';
+import { BlogdetailComponent } from './components/blogdetail/blogdetail.component';
+import { FinishresumeComponent } from './components/finishresume/finishresume.component';
 
 // register FullCalendar plugins
 FullCalendarModule.registerPlugins([
@@ -99,7 +98,6 @@ FullCalendarModule.registerPlugins([
     ProfileComponent,
     LogoutComponent,
     EditprofileComponent,
-    MessagesComponent,
     ActualiteComponent,
     PagedetailComponent,
     SelectedOffrePipe,
@@ -138,7 +136,7 @@ FullCalendarModule.registerPlugins([
     ReactiveFormsModule,
     Ng2SearchPipeModule,
     BrowserAnimationsModule,
-    RouterModule.forRoot([
+    /* RouterModule.forRoot([
     {path: '', redirectTo: 'home', pathMatch: 'full' },
     {path: 'home', component: HomeComponent},
     {path: 'signup', component: SignupComponent},
@@ -157,7 +155,6 @@ FullCalendarModule.registerPlugins([
     {path: 'profile/:id', component: ProfileComponent},
     {path: 'logout', component: LogoutComponent},
     {path: 'editprofile/:id', component: EditprofileComponent},
-    {path: 'messages', component: MessagesComponent},
     {path: 'blogs', component: ActualiteComponent},
     {path: 'pagedetail/:id', component: PagedetailComponent},
     {path: 'actdetail/:id', component: ActdetailComponent},
@@ -172,7 +169,7 @@ FullCalendarModule.registerPlugins([
     {path: 'gestioncarriere', component: GestioncarriereComponent},
     {path: 'blog/:id', component: BlogdetailComponent},
     {path: 'completresume', component: FinishresumeComponent},
-  ]),
+  ]), */
   ],
   providers: [],
   bootstrap: [AppComponent],
