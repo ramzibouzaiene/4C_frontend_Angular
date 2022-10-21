@@ -11,6 +11,7 @@ import { Router } from '@angular/router';
 export class ResetpasswordComponent implements OnInit {
   submitted = false;
   token: any;
+  email;
   error={
     email:null
   };
@@ -27,8 +28,8 @@ export class ResetpasswordComponent implements OnInit {
   }
 
   onSubmit(){
-    const email = this.resetpass.value.email;
-    this.forgetpassService.forget(email).subscribe((res:any) =>{
+    //const email = this.resetpass.value.email;
+    this.forgetpassService.forget(this.email).subscribe((res:any) =>{
       this.message = res.message;
       this.router.navigate(['/login']);
     }, (err)=>{

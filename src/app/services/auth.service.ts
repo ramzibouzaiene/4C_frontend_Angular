@@ -14,11 +14,11 @@ const httpOptions = {
 })
 export class AuthService {
 
-  
+
 
 constructor(private http: HttpClient, private router: Router) { }
 
-login(email: string, password: string): Observable<any> {
+login(email, password): Observable<any> {
     return this.http.post(AUTH_API + '/login', {
       email,
       password
@@ -30,7 +30,7 @@ register(body):Observable<any> {
     return this.http.post(AUTH_API + '/register', body, httpOptions);
   }
 
-  
+
 /*
   getToken() {
     return localStorage.getItem('access_token');
