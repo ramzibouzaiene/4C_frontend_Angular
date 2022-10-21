@@ -6,3 +6,4 @@
 - Laravel as a Backend
 - Building API Services
 - Database management with MySQL
+- Dockerize the application
