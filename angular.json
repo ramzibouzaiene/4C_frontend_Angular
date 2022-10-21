@@ -34,20 +34,20 @@
             "scripts": [
               "src/assets/js/main.js"
 
-            ],
+            ]
           },
           "configurations": {
             "production": {
               "budgets": [
                 {
                   "type": "initial",
-                  "maximumWarning": "500kb",
-                  "maximumError": "1mb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 },
                 {
                   "type": "anyComponentStyle",
-                  "maximumWarning": "2kb",
-                  "maximumError": "4kb"
+                  "maximumWarning": "2mb",
+                  "maximumError": "5mb"
                 }
               ],
               "fileReplacements": [
@@ -111,7 +111,7 @@
               "../node_modules/popper.js/dist/umd/popper.min.js",
               "src/assets/js/main.js",
               "../node_modules/bootstrap/dist/js/bootstrap.min.js"
-            ],
+            ]
           }
         }
       }

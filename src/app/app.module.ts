@@ -18,9 +18,6 @@ import { Ng2SearchPipeModule } from 'ng2-search-filter';
 import { FormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 
-import { FullCalendarModule } from '@fullcalendar/angular';
-import dayGridPlugin from '@fullcalendar/daygrid';
-import interactionPlugin from '@fullcalendar/interaction';
 import { ModalModule } from 'ngx-bootstrap/modal';
 import { CommonModule } from '@angular/common';
 import { FlatpickrModule } from 'angularx-flatpickr';
@@ -72,11 +69,6 @@ import { GestioncarriereComponent } from './components/gestioncarriere/gestionca
 import { BlogdetailComponent } from './components/blogdetail/blogdetail.component';
 import { FinishresumeComponent } from './components/finishresume/finishresume.component';
 
-// register FullCalendar plugins
-FullCalendarModule.registerPlugins([
-  dayGridPlugin,
-  interactionPlugin
-]);
 @NgModule({
   declarations: [
     AppComponent,
@@ -131,7 +123,6 @@ FullCalendarModule.registerPlugins([
     CommonModule,
     FlatpickrModule,
     NgbModalModule,
-    FullCalendarModule,
     ModalModule.forRoot(),
     ReactiveFormsModule,
     Ng2SearchPipeModule,

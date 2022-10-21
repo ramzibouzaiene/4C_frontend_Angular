@@ -15,7 +15,7 @@ import { AuthService } from '../../services/auth.service';
   providers: [EventsService, AuthService]
 })
 export class ActdetailComponent implements OnInit {
-
+  created_at: number = Date.now();
   auth = this.tokenStorage.getUser();
   currentUser: any;
   a: any;

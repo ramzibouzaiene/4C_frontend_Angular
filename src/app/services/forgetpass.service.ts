@@ -1,7 +1,5 @@
 import { Injectable } from '@angular/core';
-import { HttpClient, HttpHeaders, HttpErrorResponse } from '@angular/common/http';
-import { Observable, throwError } from 'rxjs';
-import { catchError, map } from 'rxjs/operators';
+import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { TokenStorageService } from '../services/token-storage.service';
 
 
@@ -12,10 +10,15 @@ export class ForgetpassService {
 
   constructor(private http:HttpClient,private tokenStorage: TokenStorageService) { }
 
-  forget(email: string){
-      return this.http.post('http://127.0.0.1:8000/api/forget-password',{email:email});
+  forget(email){
+      return this.http.post('http://127.0.0.1:8000/api/forget-password',{
+        params: {
+          email:email
+        }
+
+      });
     }
-  changePassword(old_password:string,new_password:string,confirm_password:string){
+  changePassword(old_password,new_password,confirm_password){
       let parameters = new HttpHeaders();
       parameters = parameters.set('Authorization', "Bearer "+ localStorage.getItem('token'));
       const data = {
@@ -27,7 +30,7 @@ export class ForgetpassService {
 
     }
 
-    reset(token:string,password:string,password_confirmation:string){
+    reset(token,password,password_confirmation){
       const data={
         token:token,
         password:password,
